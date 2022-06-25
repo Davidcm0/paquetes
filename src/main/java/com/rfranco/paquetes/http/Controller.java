@@ -1,4 +1,4 @@
-package http;
+package com.rfranco.paquetes.http;
 
 import java.util.Map;
 import org.json.JSONObject;
@@ -24,23 +24,23 @@ public class Controller {
 		Manager.get().login(matricula, password);
 	}
 
-	@PostMapping("/register")
-	public void register(@RequestBody Map<String, Object> credenciales) throws Exception {
-		JSONObject jso = new JSONObject(credenciales);
-		String password = jso.getString(PASS);
-		String passwordConfirmacion = jso.getString("pwd2");
-		
-
-		if (!password.equals(passwordConfirmacion)) {
-			//throw new excepciones.DiferentesContrasenasException(); quiza hacer system out err
-		}
-
-		String name = jso.getString(USERNAME);
-		String email = jso.getString("email");
-		//String rol = jso.getString("rol");
-
-		Manager.get().register(name, email, password);
-	}
+//	@PostMapping("/register")
+//	public void register(@RequestBody Map<String, Object> credenciales) throws Exception {
+//		JSONObject jso = new JSONObject(credenciales);
+//		String password = jso.getString(PASS);
+//		String passwordConfirmacion = jso.getString("pwd2");
+//		
+//
+//		if (!password.equals(passwordConfirmacion)) {
+//			//throw new excepciones.DiferentesContrasenasException(); quiza hacer system out err
+//		}
+//
+//		String name = jso.getString(USERNAME);
+//		String email = jso.getString("email");
+//		//String rol = jso.getString("rol");
+//
+//		Manager.get().register(name, email, password);
+//	}
 	/*
 	@PostMapping("/cerrarSesion")
 	public void cerrarSesion(@RequestBody Map<String, Object> credenciales) throws Exception {

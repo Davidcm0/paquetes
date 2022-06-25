@@ -50,6 +50,7 @@ import org.springframework.web.socket.WebSocketSession;
 
 import Lanzadora.persistencia.*;
 import excepciones.CredencialesInvalidasException;
+import persistencia.VehiculoDAO;
 
 import java.awt.EventQueue;
 import java.awt.TextField;
@@ -80,9 +81,9 @@ public class Manager {
 
 		boolean login = false;
 
-		ArrayList<Vehiculo> vehiculos = (ArrayList<Vehiculo>) VehiculoDAO.leerUsers();
-		for (User u : usuarios) {
-			login = checkCredenciales(u, matricula, password);
+		ArrayList<Vehiculo> vehiculos = (ArrayList<Vehiculo>) VehiculoDAO.leer_vehiculos();
+		for (Vehiculo v : vehiculos) {
+			login = checkCredenciales(v, matricula, password);
 			if (login)
 				break;
 		}
@@ -92,23 +93,22 @@ public class Manager {
 
 	}
 
-	public boolean checkCredenciales(User u, String name, String password) throws Exception {
+	public boolean checkCredenciales(Vehiculo v, String matricula, String password) throws Exception {
 		boolean aux = false;
 		String pwdEncrypted, pwdUser;
-		if (u.getValidado()) {
-			if (u.getName().equals(name)) {
-				pwdEncrypted = u.getPassword();
+		if (v.getMatricula().equals(matricula)) {
+				pwdEncrypted = v.getPassword();
 				pwdUser = encriptarMD5(password);
 				if (!(pwdEncrypted.equals(pwdUser))) {
 
-					throw new CredencialesInvalidasException();
+					//throw new CredencialesInvalidasException();
 
 				} else {
 					System.out.println("Sucessful login");
 					aux = true;
 				}
-			}
 		}
+		
 
 		return aux;
 
