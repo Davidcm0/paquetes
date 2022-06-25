@@ -3,7 +3,8 @@
 let login = function() {
 	const info = {
 		type: 'Login',
-		pwd: $('#matricula').val()
+		matricula: $('#matricula').val(),
+		pwd: $('#password').val()
 	};
 	sessionStorage.userName = $('#matricula').val();
 	const data = {
