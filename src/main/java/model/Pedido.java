@@ -6,16 +6,27 @@ public class Pedido {
 
 	private int Id;
 	private List<String> ubicaciones;
-	private Vehiculo vehiculo;
+	private Object ubicaciones2;
+	private String vehiculo;
 	
 	public Pedido() {
 		
 	}
 	
-	public Pedido(int id, List<String> ubicaciones, Vehiculo vehiculo) {
+	public Pedido(int id, Object ubicaciones, String vehiculo) {
+		this.Id = id;
+		this.ubicaciones2 = ubicaciones;
+		this.vehiculo = vehiculo;
+	}
+	
+	public Pedido(int id, List<String> ubicaciones, String vehiculo) {
 		this.Id = id;
 		this.ubicaciones = ubicaciones;
 		this.vehiculo = vehiculo;
+	}
+	
+	public Pedido(int id) {
+		this.Id = id;
 	}
 	
 	public int getId() {
@@ -30,10 +41,10 @@ public class Pedido {
 	public void setUbicaciones(List<String> ubicaciones) {
 		this.ubicaciones = ubicaciones;
 	}
-	public Vehiculo getVehiculo() {
+	public String getVehiculo() {
 		return vehiculo;
 	}
-	public void setVehiculo(Vehiculo vehiculo) {
+	public void setVehiculo(String vehiculo) {
 		this.vehiculo = vehiculo;
 	}
 	
