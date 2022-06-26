@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+	integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+	integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+	crossorigin="anonymous"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+<!-- CUSTOM CSS -->
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link
+	href="https://fonts.googleapis.com/css2?family=Bitter:wght@500&display=swap"
+	rel="stylesheet">
+<title>Register</title>
+<!-- FAVICON -->
+<link rel="icon" href="favicon.ico" type="image/ico" />
+</head>
+</body>
+<p>
+<form class="box" action="register.html" method="post">
+	<h1>Register</h1>
+	</br> <input type="text" id="matricula" name="matricula" required="required"
+		type="text" placeholder="Matrícula" /> <input type="text" id="marca"
+		name="marca" required="required" type="text" placeholder="Marca" /> <input
+		type="text" id="modelo" name="modelo" required="required" type="text"
+		placeholder="Modelo" /> <input type="text" id="color" name="color"
+		required="required" type="text" placeholder="Color" /> <input
+		id="pwd1" type="password" name="pass" placeholder="Password"
+		pattern="[A-Za-z][A-Za-z0-9]*[0-9][A-Za-z0-9]*"
+		title="Una contraseña válida es un conjuto de caracteres, donde cada uno consiste de una letra mayúscula o minúscula, o un dígito. La contraseña debe empezar con una letra y contener al menor un dígito"
+		required> <input type="password" id="pwd2" required="required"
+		type="password" placeholder="Repeat password" autocomplete="off"
+		pattern="[A-Za-z][A-Za-z0-9]*[0-9][A-Za-z0-9]*"
+		title="Una contraseña válida es un conjuto de caracteres, donde cada uno consiste de una letra mayúscula o minúscula, o un dígito. La contraseña debe empezar con una letra y contener al menor un dígito"
+		required> </br>
+	<button type="button" onclick="register()" id="btnregister">Register</button>
+	<button type="button" onclick="window.history.back()" id="goToLogin">Back</button>
+
+</form>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!-- KNOCKOUT -->
+<script src="https://knockoutjs.com/downloads/knockout-3.5.0.js"></script>
+<script src="register.js"></script>
+</body>
+</html>

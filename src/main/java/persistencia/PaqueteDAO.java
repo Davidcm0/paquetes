@@ -15,10 +15,10 @@ import model.Vehiculo;
 
 public class PaqueteDAO {
 	
-	public static final String ID = "matricula";
+	public static final String ID = "Id";
 	public static final String UBICACIONES = "ubicaciones";
 	public static final String VEHICULO = "vehiculo";
-	public static final String PEDIDO = "pedido";
+	public static final String PEDIDO = "Pedido";
 	public static final String MATRICULA = "matricula";
 	
 	public static void insertar(Pedido pedido) {
@@ -45,8 +45,13 @@ public class PaqueteDAO {
 		
 		while ((iter.hasNext())) {
 			document = iter.next();
-			p = new Pedido(document.getInteger(ID), document.get(UBICACIONES), document.getString(VEHICULO));
-			pedidos.add(p);
+			ArrayList<String> ubicaciones = (ArrayList<String>) document.get(UBICACIONES);
+			String calle1 = ubicaciones.get(0);
+			if(document.getString(VEHICULO).equals("")) {
+				p = new Pedido(document.getInteger(ID), (ArrayList<String>) document.get(UBICACIONES), document.getString(VEHICULO));
+				pedidos.add(p);
+			}
+			
 			
 		}
 
@@ -72,14 +77,14 @@ public class PaqueteDAO {
 		return p;
 	}
 	
-	public static void asignar_vehiculo(Pedido pedido, String matricula) {
+	public static void asignar_vehiculo(int id, String matricula) {
 
 		MongoCollection<Document> coleccion = AgenteDB.get().getBd(PEDIDO);
-		 Document findDocument = new Document(ID, pedido.getId());
+		 Document findDocument = new Document(ID, id);
 		 
 		// Create the document to specify the update
 		    Document updateDocument = new Document("$set",
-		        new Document(MATRICULA, matricula));
+		        new Document(VEHICULO, matricula));
 		    coleccion.findOneAndUpdate(findDocument, updateDocument);
 		
 		

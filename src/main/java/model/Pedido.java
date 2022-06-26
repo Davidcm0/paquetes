@@ -1,11 +1,14 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import org.json.JSONObject;
 
 public class Pedido {
 
 	private int Id;
-	private List<String> ubicaciones;
+	private ArrayList<String> ubicaciones;
 	private Object ubicaciones2;
 	private String vehiculo;
 	
@@ -19,7 +22,7 @@ public class Pedido {
 		this.vehiculo = vehiculo;
 	}
 	
-	public Pedido(int id, List<String> ubicaciones, String vehiculo) {
+	public Pedido(int id, ArrayList<String> ubicaciones, String vehiculo) {
 		this.Id = id;
 		this.ubicaciones = ubicaciones;
 		this.vehiculo = vehiculo;
@@ -35,10 +38,10 @@ public class Pedido {
 	public void setId(int id) {
 		Id = id;
 	}
-	public List<String> getUbicaciones() {
+	public ArrayList<String> getUbicaciones() {
 		return ubicaciones;
 	}
-	public void setUbicaciones(List<String> ubicaciones) {
+	public void setUbicaciones(ArrayList<String> ubicaciones) {
 		this.ubicaciones = ubicaciones;
 	}
 	public String getVehiculo() {
@@ -46,6 +49,14 @@ public class Pedido {
 	}
 	public void setVehiculo(String vehiculo) {
 		this.vehiculo = vehiculo;
+	}
+	
+	public JSONObject toJSON() {
+		JSONObject jso = new JSONObject();
+		jso.put("Id", this.getId());
+		jso.put("Ubicaciones", this.getUbicaciones());
+		jso.put("Vehiculo", this.getVehiculo());
+		return jso;
 	}
 	
 	

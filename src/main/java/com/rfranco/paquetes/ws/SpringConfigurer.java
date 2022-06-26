@@ -1,4 +1,4 @@
-package ws;
+package com.rfranco.paquetes.ws;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

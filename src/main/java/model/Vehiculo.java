@@ -1,5 +1,7 @@
 package model;
 
+import org.json.JSONObject;
+
 public class Vehiculo {
 	
 	private String matricula;
@@ -52,6 +54,15 @@ public class Vehiculo {
 	}
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
+	}
+	
+	public JSONObject toJSON() {
+		JSONObject jso = new JSONObject();
+		jso.put("Matricula", this.getMatricula());
+		jso.put("Marca", this.getMarca());
+		jso.put("Modelo", this.getModelo());
+		jso.put("Color", this.getColor());
+		return jso;
 	}
 
 }

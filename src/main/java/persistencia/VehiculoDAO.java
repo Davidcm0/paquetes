@@ -21,7 +21,7 @@ public class VehiculoDAO {
 	public static final String MODELO = "modelo";
 	public static final String COLOR = "color";
 	public static final String PASSWORD = "password";
-	public static final String VEHICULO = "vehiculo";
+	public static final String VEHICULO = "Vehiculo";
 	
 	
 	private VehiculoDAO() {

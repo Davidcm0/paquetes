@@ -14,6 +14,9 @@ public class Controller {
 	
 	private static final String MATRICULA = "matricula";
 	private static final String PASS = "pwd";
+	private static final String MARCA = "marca";
+	private static final String MODELO = "modelo";
+	private static final String COLOR = "color";
 
 	@PostMapping("/login")
 	public void login(@RequestBody Map<String, Object> credenciales)  throws Exception {
@@ -24,23 +27,24 @@ public class Controller {
 		Manager.get().login(matricula, password);
 	}
 
-//	@PostMapping("/register")
-//	public void register(@RequestBody Map<String, Object> credenciales) throws Exception {
-//		JSONObject jso = new JSONObject(credenciales);
-//		String password = jso.getString(PASS);
-//		String passwordConfirmacion = jso.getString("pwd2");
-//		
-//
-//		if (!password.equals(passwordConfirmacion)) {
-//			//throw new excepciones.DiferentesContrasenasException(); quiza hacer system out err
-//		}
-//
-//		String name = jso.getString(USERNAME);
-//		String email = jso.getString("email");
-//		//String rol = jso.getString("rol");
-//
-//		Manager.get().register(name, email, password);
-//	}
+	@PostMapping("/register")
+	public void register(@RequestBody Map<String, Object> credenciales) throws Exception {
+		JSONObject jso = new JSONObject(credenciales);
+		String password = jso.getString(PASS);
+		String passwordConfirmacion = jso.getString("pwd2");
+		
+
+		if (!password.equals(passwordConfirmacion)) {
+			//throw new excepciones.DiferentesContrasenasException(); quiza hacer system out err
+		}
+
+		String matricula = jso.getString(MATRICULA);
+		String marca = jso.getString(MARCA);
+		String modelo = jso.getString(MODELO);
+		String color = jso.getString(COLOR);
+
+		Manager.get().register(matricula, password, marca, modelo, color);
+	}
 	/*
 	@PostMapping("/cerrarSesion")
 	public void cerrarSesion(@RequestBody Map<String, Object> credenciales) throws Exception {
