@@ -467,4 +467,23 @@ public class Manager {
 		
 	}
 
+	public void eliminar_pedidos(Object pedidos) {
+		ArrayList<Integer> listdata = new ArrayList<Integer>();
+		JSONArray jArray = (JSONArray) pedidos;
+		if (jArray != null) {
+			for (int i = 0; i < jArray.length(); i++) {
+				listdata.add(jArray.getInt(i));
+			}
+		}
+		for (Integer Id: listdata) {
+			PaqueteDAO.eliminar_pedido(Id);
+		}
+		
+	}
+
+	public void actualizar_ubi(Object pedidos, String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

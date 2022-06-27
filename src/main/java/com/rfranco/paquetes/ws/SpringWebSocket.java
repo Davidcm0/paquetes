@@ -37,16 +37,27 @@ public class SpringWebSocket extends TextWebSocketHandler {
 
 			 //Manager.get().leer_proyectos(jso.getString(NOMBRE));
 			break;
+			
 		case "asignar":
 			
 			  Manager.get().AsignarPedidos(jso.getString(MATRICULA), jso.get("pedidos"));
 			break;
+			
 		case "localizar":
 			session.sendMessage(new TextMessage( Manager.get().LocalizarPedido(jso.getInt(IDPEDIDO)).toString()));
 			  
 			break;
+			
 		case "ActualizarVehiculo":
 			Manager.get().actualizar_vehiculo(jso.getString("matriculaVieja"),jso.getString("matriculaNueva"), jso.getString("marca"), jso.getString("modelo"), jso.getString("color"));
+			break;
+			
+		case "eliminar":
+			Manager.get().eliminar_pedidos(jso.get("pedidos"));
+			break;
+			
+		case "actualizarUbi":
+			Manager.get().actualizar_ubi(jso.get("pedidos"),jso.getString("ubicacion"));
 			break;
 		}
 		

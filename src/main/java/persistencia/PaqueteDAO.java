@@ -8,8 +8,6 @@ import org.bson.Document;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 
-//import Lanzadora.Model.proyecto;
-//import Lanzadora.persistencia.AgenteDB;
 import model.Pedido;
 import model.Vehiculo;
 
@@ -89,6 +87,18 @@ public class PaqueteDAO {
 		
 		
 
+	}
+
+	public static void eliminar_pedido(Integer id) {
+		Document document;
+		MongoCollection<Document> coleccion;
+
+		if (id != null) {
+			coleccion = AgenteDB.get().getBd(PEDIDO);
+			document = new Document("Id", id);
+			coleccion.findOneAndDelete(document);
+		}
+		
 	}
 
 }

@@ -4,7 +4,9 @@ function ViewModel() {
 	self.listapedidosMios = ko.observableArray([]);
 	self.listapedidosDisponibles = ko.observableArray([]);
 	self.pedidosAsignados = ko.observableArray([]);
+	self.pedidosEliminados = ko.observableArray([]);
 	self.idPedido = ko.observable('');
+	self.NuevaUbi = ko.observableArray([]);
 	self.user = ko.observable('');
 	//self.datos = [];
 	//self.datos2 = [];
@@ -86,7 +88,7 @@ function ViewModel() {
 	}
 	
 	self.asignarPedido = function() {
-		for (var i = 0; i < self.listapedidos().length; i++) {
+		for (var i = 0; i < self.listapedidosDisponibles().length; i++) {
 			if (document.getElementsByClassName("form-check-input")[i].checked === true) {
 				self.pedidosAsignados.push(document.getElementsByClassName("form-check-label")[i].innerHTML);
 			}
@@ -101,7 +103,43 @@ function ViewModel() {
 		location.reload();
 	}
 	
-	self.modificarVehiculo = function() {
+	self.eliminarPedido = function() {
+		for (var i = 0; i < self.listapedidosMios().length; i++) {
+			if (document.getElementsByClassName("form-check-input")[i].checked === true) {
+				self.pedidosEliminados.push(document.getElementsByClassName("form-check-label")[i].innerHTML);
+			}
+		}
+		
+		const info ={
+				type: 'eliminar',
+				matricula: sessionStorage.userName,
+				pedidos: self.pedidosEliminados()
+		};
+		self.sws.send(JSON.stringify(info));
+		location.reload();
+	}
+	
+	self.actualizarUbicacion= function() {
+	    var nueva_ubi = escapeHtml($('#actualizacionUbi').val());
+		nueva_ubi = stringEscape(nueva_ubi);
+		for (var i = 0; i < self.listapedidosMios().length; i++) {
+			if (document.getElementsByClassName("form-check-input")[i].checked === true) {
+				self.nuevaUbi.push(document.getElementsByClassName("form-check-label")[i].innerHTML);
+			}
+		}
+		
+		const info ={
+				type: 'actualizarUbi',
+				matricula: sessionStorage.userName,
+				ubicacion: nueva_ubi,
+				pedidos: self.NuevaUbi()
+		};
+		self.sws.send(JSON.stringify(info));
+		location.reload();
+		
+	}
+	
+	self.modificarVehiculo = function() {//cambiar
 		var dut;
 		var repeticiones;
 		

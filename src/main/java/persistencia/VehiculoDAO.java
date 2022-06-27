@@ -8,11 +8,7 @@ import org.bson.Document;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 
-import Lanzadora.persistencia.AgenteDB;
-//import Lanzadora.Model.User;
-//import Lanzadora.persistencia.AgenteDB;
-//import Lanzadora.Model.proyecto;
-//import Lanzadora.persistencia.AgenteDB;
+
 import model.Vehiculo;
 
 public class VehiculoDAO {
@@ -97,22 +93,20 @@ public class VehiculoDAO {
 		 Document findDocument = new Document("matricula", matricula_vieja);
 		//actualizamos descripcion
 		 if (!matricula_nueva.equals("")) {
-		    Document updateDescripcion = new Document("$set",new Document("matricula", matricula_nueva));
-		    coleccion.findOneAndUpdate(findDocument, updateDescripcion);
+		    Document updateMatricula = new Document("$set",new Document("matricula", matricula_nueva));
+		    coleccion.findOneAndUpdate(findDocument, updateMatricula);
 		 }
 		 if (!marca.equals("")) {
-		    Document updateLen = new Document("$set",new Document("marca", marca));
-		    coleccion.findOneAndUpdate(findDocument, updateLen);
+		    Document updateMarca = new Document("$set",new Document("marca", marca));
+		    coleccion.findOneAndUpdate(findDocument, updateMarca);
 		 }
 		 if (!modelo.equals("")) {
-		  //nombre
-		    Document updateName = new Document("$set",new Document("modelo", modelo));
-		    coleccion.findOneAndUpdate(findDocument, updateName);
+		    Document updateModelo = new Document("$set",new Document("modelo", modelo));
+		    coleccion.findOneAndUpdate(findDocument, updateModelo);
 		 }
 		 if (!color.equals("")) {
-			  //nombre
-			    Document updateName = new Document("$set",new Document("color", color));
-			    coleccion.findOneAndUpdate(findDocument, updateName);
+			    Document updateColor = new Document("$set",new Document("color", color));
+			    coleccion.findOneAndUpdate(findDocument, updateColor);
 			 }
 		
 	}

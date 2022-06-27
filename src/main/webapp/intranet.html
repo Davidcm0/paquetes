@@ -47,11 +47,23 @@
 								for="flexCheckDefault" data-bind="html : id"> </label>
 						</div>
 						<!-- /ko -->
-						
-						<button type="button" id="EliminarPedido" class="btn btn-primary"
-							data-bind="click: $root.eliminarPedido"
-							style="margin-right: 3%; margin-top: 1%;">Eliminar pedido</button>
-
+						<div class="row">
+							<input type="text" class="form-control" id="actualizacionUbi"
+								placeholder="Actualizar ubicación">
+							<div class="col-md-6">
+								<button type="button" id="EliminarPedido"
+									class="btn btn-primary" data-bind="click: $root.eliminarPedido"
+									style="margin-right: 3%; margin-top: 1%;">Eliminar
+									pedido</button>
+							</div>
+							<div class="col-md-6">
+								<button type="button" id="ActualizarUbicacion"
+									class="btn btn-primary"
+									data-bind="click: $root.actualizarUbicacion"
+									style="margin-right: 3%; margin-top: 1%;">Actualizar
+									ubicación</button>
+							</div>
+						</div>
 
 					</div>
 

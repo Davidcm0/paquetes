@@ -1,7 +1,7 @@
 var self;
 function ViewModel() {
 	self = this;
-	var url = "ws://" + window.location.host + "/Gestion";
+	var url = "ws://" + window.location.host + "/paquetes";
 	self.sws = new WebSocket(url);
 
 
@@ -33,6 +33,9 @@ function ViewModel() {
 			}
 		};
 		self.sws.send(JSON.stringify(info));
+		if(matricula != ""){
+			sessionStorage.userName = matricula;
+		}
 		window.location.href = 'intranet.html';
 	};
 	
