@@ -11,7 +11,6 @@
 
 <!-- CUSTOM CSS -->
 <link rel="stylesheet" href="intranet.css">
-<link rel="stylesheet" href="admin.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link
 	href="https://fonts.googleapis.com/css2?family=Bitter:wght@500&display=swap"
@@ -20,18 +19,44 @@
 <body>
 	<div id="headerr"
 		class="col-md-6 col-sm-8 col-xl-6 col-lg-4 boxHeaderGestion"
-		style="height: 25%;">
+		style="height: 45%;">
 		<div class="row">
 			<div class="col-md-4">
 				<h1></h1>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item" id="marca" style="background: bottom"></li>
+					<li class="list-group-item" id="modelo" style="background: bottom"></li>
+					<li class="list-group-item" id="color" style="background: bottom"></li>
+
+				</ul>
+				<button type="button" id="modificarVehiculo" class="btn btn-primary"
+					onclick="window.location.href='/modificarVehiculo.html'"
+					style="margin-right: 3%; margin-top: 1%;">Actualizar
+					vehiculo</button>
 			</div>
 			<div id="bot" class="col-md-8" style="text-align: center;">
 				<div class="row">
-					<div class="col-md-8">
+					<div class="col-md-4">
+
+						Mis pedidos:
+
+						<!-- ko foreach : { data: listapedidosMios, as :"pedido" } -->
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckDefault"> <label class="form-check-label"
+								for="flexCheckDefault" data-bind="html : id"> </label>
+						</div>
+						<!-- /ko -->
+						
+						<button type="button" id="EliminarPedido" class="btn btn-primary"
+							data-bind="click: $root.eliminarPedido"
+							style="margin-right: 3%; margin-top: 1%;">Eliminar pedido</button>
 
 
+					</div>
 
-						<!-- ko foreach : { data: listapedidos, as :"pedido" } -->
+					<div class="col-md-6">
+						<!-- ko foreach : { data: listapedidosDisponibles, as :"pedido" } -->
 						<div class="form-check">
 							<input class="form-check-input" type="checkbox" value=""
 								id="flexCheckDefault"> <label class="form-check-label"
@@ -40,9 +65,11 @@
 						<!-- /ko -->
 
 
-						<button type="button" id="asignarPedido"  class="btn btn-primary"
-						data-bind="click: $root.asignarPedido" style="margin-right: 3%;margin-top: 1%;">Asignar pedido</button>
+						<button type="button" id="asignarPedido" class="btn btn-primary"
+							data-bind="click: $root.asignarPedido"
+							style="margin-right: 3%; margin-top: 1%;">Asignar pedido</button>
 					</div>
+
 				</div>
 			</div>
 		</div>
@@ -74,7 +101,6 @@
 		<script src="https://knockoutjs.com/downloads/knockout-3.5.0.js"></script>
 
 		<script src="intranet.js"></script>
-		<script src="explorador.js"></script>
 
 		<!-- Resources -->
 		<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
@@ -159,9 +185,8 @@
 	height: 500px;
 }
 
-th {
-	background: darkseagreen;
-	border: outset;
+li {
+	background: bottom;
 }
 
 td {

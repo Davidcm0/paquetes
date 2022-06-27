@@ -11,16 +11,13 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 
 import model.Manager;
 
-//import Lanzadora.Model.Manager;
-
-//import Lanzadora.Model.Manager;
 
 @Component
 public class SpringWebSocket extends TextWebSocketHandler {
 
 	private static final String VEHICULO = "vehiculo";
 	private static final String MATRICULA = "matricula";
-	private static final String IDPEDIDO = "id_pedido";
+	private static final String IDPEDIDO = "IdPedido";
 	private static final String UBICACION = "ubicacion";
 	private static final String TYPE = "type";
 
@@ -36,13 +33,20 @@ public class SpringWebSocket extends TextWebSocketHandler {
 		
 		switch (jso.getString(TYPE)) {
 		case "ready":
-			session.sendMessage(new TextMessage(Manager.get().leer_pedidos().toString()));
+			session.sendMessage(new TextMessage(Manager.get().leer_pedidos(jso.getString(MATRICULA)).toString()));
 
 			 //Manager.get().leer_proyectos(jso.getString(NOMBRE));
 			break;
 		case "asignar":
 			
 			  Manager.get().AsignarPedidos(jso.getString(MATRICULA), jso.get("pedidos"));
+			break;
+		case "localizar":
+			session.sendMessage(new TextMessage( Manager.get().LocalizarPedido(jso.getInt(IDPEDIDO)).toString()));
+			  
+			break;
+		case "ActualizarVehiculo":
+			Manager.get().actualizar_vehiculo(jso.getString("matriculaVieja"),jso.getString("matriculaNueva"), jso.getString("marca"), jso.getString("modelo"), jso.getString("color"));
 			break;
 		}
 		

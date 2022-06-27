@@ -377,15 +377,17 @@ public class Manager {
 
 	}
 
-	public JSONObject leer_pedidos() {
+	public JSONObject leer_pedidos(String matricula) {
 		JSONArray jsa = new JSONArray();
 		JSONObject jso = new JSONObject();
 		List<Pedido> pedidos = PaqueteDAO.leer_pedidos();
-
+		Vehiculo v = VehiculoDAO.leer_vehiculo(matricula);
+        jsa.put(v.toJSON());
 		for (Pedido pedido : pedidos) {
 
 			jsa.put(pedido.toJSON());
 		}
+		
 		jso.put("pedidos", jsa);
 
 		return jso;
@@ -444,6 +446,24 @@ public class Manager {
 			PaqueteDAO.asignar_vehiculo(Id,matricula);
 		}
 		
+		
+	}
+
+	public JSONObject LocalizarPedido(int idpedido) {
+		JSONObject jso = new JSONObject();
+		JSONArray jsa = new JSONArray();
+		Pedido p = PaqueteDAO.leer_pedido(idpedido);
+		Vehiculo v = VehiculoDAO.leer_vehiculo(p.getVehiculo());
+		jsa.put(p.toJSON());
+		jsa.put(v.toJSON());
+		jso.put("pedido", jsa);
+		return jso;
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void actualizar_vehiculo(String matricula_vieja, String matricula_nueva, String marca, String modelo, String color) {
+		VehiculoDAO.actualizar_vehiculo(matricula_vieja, matricula_nueva, marca, modelo, color);
 		
 	}
 

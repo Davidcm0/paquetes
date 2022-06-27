@@ -8,6 +8,7 @@ import org.bson.Document;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 
+import Lanzadora.persistencia.AgenteDB;
 //import Lanzadora.Model.User;
 //import Lanzadora.persistencia.AgenteDB;
 //import Lanzadora.Model.proyecto;
@@ -88,6 +89,32 @@ public class VehiculoDAO {
 		}
 
 		return v;
+	}
+
+	public static void actualizar_vehiculo(String matricula_vieja, String matricula_nueva, String marca,
+			String modelo, String color) {
+		MongoCollection<Document> coleccion = AgenteDB.get().getBd(VEHICULO);
+		 Document findDocument = new Document("matricula", matricula_vieja);
+		//actualizamos descripcion
+		 if (!matricula_nueva.equals("")) {
+		    Document updateDescripcion = new Document("$set",new Document("matricula", matricula_nueva));
+		    coleccion.findOneAndUpdate(findDocument, updateDescripcion);
+		 }
+		 if (!marca.equals("")) {
+		    Document updateLen = new Document("$set",new Document("marca", marca));
+		    coleccion.findOneAndUpdate(findDocument, updateLen);
+		 }
+		 if (!modelo.equals("")) {
+		  //nombre
+		    Document updateName = new Document("$set",new Document("modelo", modelo));
+		    coleccion.findOneAndUpdate(findDocument, updateName);
+		 }
+		 if (!color.equals("")) {
+			  //nombre
+			    Document updateName = new Document("$set",new Document("color", color));
+			    coleccion.findOneAndUpdate(findDocument, updateName);
+			 }
+		
 	}
 	
 	

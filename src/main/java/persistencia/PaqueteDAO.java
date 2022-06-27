@@ -47,10 +47,10 @@ public class PaqueteDAO {
 			document = iter.next();
 			ArrayList<String> ubicaciones = (ArrayList<String>) document.get(UBICACIONES);
 			String calle1 = ubicaciones.get(0);
-			if(document.getString(VEHICULO).equals("")) {
+			//if(document.getString(VEHICULO).equals("")) {
 				p = new Pedido(document.getInteger(ID), (ArrayList<String>) document.get(UBICACIONES), document.getString(VEHICULO));
 				pedidos.add(p);
-			}
+			//}
 			
 			
 		}
@@ -68,7 +68,7 @@ public class PaqueteDAO {
 		while ((iter.hasNext())) {
 			document = iter.next();
 			if(id == document.getInteger(ID)) {
-				p = new Pedido(document.getInteger(ID), document.get(UBICACIONES), document.getString(VEHICULO));
+				p = new Pedido(document.getInteger(ID), (ArrayList<String>) document.get(UBICACIONES), document.getString(VEHICULO));
 
 			}
 			
