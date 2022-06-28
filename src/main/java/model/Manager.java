@@ -1,37 +1,11 @@
 package model;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
 import java.math.BigInteger;
-import java.math.RoundingMode;
 import java.net.Socket;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.text.DecimalFormat;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeMap;
-import java.io.FileOutputStream;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.web.socket.TextMessage;
@@ -42,10 +16,7 @@ import org.springframework.web.socket.WebSocketSession;
 import persistencia.PaqueteDAO;
 import persistencia.VehiculoDAO;
 
-import java.awt.EventQueue;
-import java.awt.TextField;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 import java.io.*;
 import javax.swing.*;
 
@@ -148,36 +119,6 @@ public class Manager {
 		
 		jso.put("pedidos", jsa);
 
-		return jso;
-	}
-
-	public JSONObject comparar(Object proyectos, String usuario) {
-
-		ArrayList<String> listdata = new ArrayList<String>();
-		JSONArray jArray = (JSONArray) proyectos;
-		if (jArray != null) {
-			for (int i = 0; i < jArray.length(); i++) {
-				listdata.add(jArray.getString(i));
-			}
-		}
-		
-		JSONObject jso = new JSONObject();
-		JSONObject jso2 = new JSONObject();
-		JSONArray jsa = new JSONArray();
-		
-		for (int i = 0; i < listdata.size(); i++) {
-
-			 jso2 = resultados(listdata.get(i), usuario);
-			 Iterator x = jso2.keys();
-			 while (x.hasNext()){
-				    String key = (String) x.next();
-				    jsa.put(jso2.get(key));
-				}
-			//jsa.put(resultados.toJSON());
-			//jsa.put(jso2);
-		}
-		
-		jso.put("graficas", jsa);
 		return jso;
 	}
 

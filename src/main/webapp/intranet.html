@@ -46,10 +46,13 @@
 								id="form2"> <label class="form-check-label"
 								for="flexCheckDefault" data-bind="html : id"> </label>
 						</div>
+						
 						<!-- /ko -->
+					
+						</br>
 						<div class="row">
 							<input type="text" class="form-control" id="actualizacionUbi"
-								placeholder="Actualizar ubicación">
+								placeholder="Actualizar ubicación"></br></br>
 							<div class="col-md-6">
 								<button type="button" id="EliminarPedido"
 									class="btn btn-primary" data-bind="click: $root.eliminarPedido"
@@ -64,7 +67,6 @@
 									ubicación</button>
 							</div>
 						</div>
-
 					</div>
 
 					<div class="col-md-6">
@@ -85,13 +87,7 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
-
-
-
-	<div id="koGestion">
-
 
 
 		<!-- Optional JavaScript -->
@@ -114,110 +110,10 @@
 
 		<script src="intranet.js"></script>
 
-		<!-- Resources -->
-		<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
-		<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
-		<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
-
-		<script src="https://cdn.emailjs.com/dist/email.min.js"
-			type="text/javascript"></script>
-
-
-
-		<script type="text/javascript">
-			function buscar() {
-				var filtro = document.getElementById("search").value;
-				var projects = document.getElementsByClassName("cards");
-				for (var i = 0; i < projects[0].children.length; i++) {
-					projects[0].children[i].style.display = "flex";
-
-				}
-
-				for (var i = 0; i < projects[0].children.length; i++) {
-					var esta = projects[0].children[i].innerText
-							.indexOf(filtro);
-					if (esta < 0) {
-						projects[0].children[i].style.display = "none";
-					}
-				}
-
-				if (filtro == "") {
-					location.reload();
-				}
-				var cartas = document.getElementsByClassName("cards");
-				cartas[0].style.display = "flex";
-
-			}
-
-			function mostrarProyectos() {
-				var proyectos = document.getElementsByClassName("cards");
-				var grafica = document.getElementById("chartdiv");
-				if (proyectos[0].style.display == "none") {
-					proyectos[0].style.display = "block";
-					grafica.style.marginTop = "1%";
-				} else {
-					proyectos[0].style.display = "none";
-					grafica.style.marginTop = "15%";
-				}
-			}
-
-			function Comparar() {
-				var extension = document.getElementsByClassName("form-check").length;
-				var extension2 = 30;
-				if (extension > 3) {
-					var aux = extension - 3;
-					aux = aux * 3;
-					extension2 = aux + extension2;
-				}
-
-				var extend = extension2 + "%";
-				var extendcartas = extension2 - 13;
-				extendcartas = extendcartas + "%";
-				var boxes = document.getElementById("boxes");
-				var crearPro = document.getElementById("crearProyect");
-				var cards = document.getElementsByClassName("cards");
-				var header = document.getElementById("headerr");
-				var headerHeight = header.style.height;
-				//header.style.height = "25%";
-				boxes.style.display = "initial";
-				//crearPro.style.display = "none";
-				var bot = document.getElementById("bot");
-				//var aux = bot.stlyle.height;
-				//var height = aux + headerHeight;
-				header.style.height = extend;
-				cards[0].style.marginTop = extendcartas;
-				var boton = document.getElementById("elegirProyecto");
-				boton.style.display = "none";
-			}
-		</script>
 </body>
 <style>
-#chartdiv {
-	width: 100%;
-	height: 500px;
-}
-
 li {
 	background: bottom;
-}
-
-td {
-	border: outset;
-}
-
-#chartdiv2 {
-	width: 100%;
-	height: 500px;
-}
-
-#chartdiv3 {
-	width: 100%;
-	height: 500px;
-}
-
-#chartdiv4 {
-	width: 100%;
-	height: 500px;
 }
 </style>
 </html>

@@ -45,22 +45,4 @@ public class Controller {
 
 		Manager.get().register(matricula, password, marca, modelo, color);
 	}
-	/*
-	@PostMapping("/cerrarSesion")
-	public void cerrarSesion(@RequestBody Map<String, Object> credenciales) throws Exception {
-		JSONObject jso = new JSONObject(credenciales);
-		String name = jso.getString(USERNAME);
-		Manager.get().cerrarSesion(name);
-	}
-
-	@PostMapping("/checkAccess")
-	public void checkAccess(@RequestBody Map<String, Object> credenciales) throws Exception {
-		JSONObject jso = new JSONObject(credenciales);
-		String name = jso.getString(USERNAME);
-		String token = jso.getString("token");
-		String page = jso.getString("page");
-		String[] parts = page.split("/");
-		Manager.get().checkAccess(name, token, parts[parts.length - 1]);
-	}
-*/
 }

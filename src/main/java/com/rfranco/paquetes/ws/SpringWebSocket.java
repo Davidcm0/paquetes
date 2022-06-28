@@ -35,7 +35,7 @@ public class SpringWebSocket extends TextWebSocketHandler {
 		case "ready":
 			session.sendMessage(new TextMessage(Manager.get().leer_pedidos(jso.getString(MATRICULA)).toString()));
 
-			 //Manager.get().leer_proyectos(jso.getString(NOMBRE));
+			 
 			break;
 			
 		case "asignar":

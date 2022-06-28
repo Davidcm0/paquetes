@@ -37,20 +37,28 @@
 <p>
 <form class="box" action="register.html" method="post">
 	<h1>Register</h1>
-	</br> <input type="text" id="matricula" name="matricula" required="required"
-		type="text" placeholder="Matrícula" /> <input type="text" id="marca"
-		name="marca" required="required" type="text" placeholder="Marca" /> <input
-		type="text" id="modelo" name="modelo" required="required" type="text"
-		placeholder="Modelo" /> <input type="text" id="color" name="color"
-		required="required" type="text" placeholder="Color" /> <input
-		id="pwd1" type="password" name="pass" placeholder="Password"
-		pattern="[A-Za-z][A-Za-z0-9]*[0-9][A-Za-z0-9]*"
-		title="Una contraseña válida es un conjuto de caracteres, donde cada uno consiste de una letra mayúscula o minúscula, o un dígito. La contraseña debe empezar con una letra y contener al menor un dígito"
-		required> <input type="password" id="pwd2" required="required"
-		type="password" placeholder="Repeat password" autocomplete="off"
-		pattern="[A-Za-z][A-Za-z0-9]*[0-9][A-Za-z0-9]*"
-		title="Una contraseña válida es un conjuto de caracteres, donde cada uno consiste de una letra mayúscula o minúscula, o un dígito. La contraseña debe empezar con una letra y contener al menor un dígito"
-		required> </br>
+	</br>
+	<div class="form-row">
+		<input type="text" id="matricula" name="matricula" required="required"
+			type="text" placeholder="Matrícula" /> <input type="text" id="marca"
+			name="marca" required="required" type="text" placeholder="Marca" />
+	</div>
+	<div class="form-row">
+		<input type="text" id="modelo" name="modelo" required="required"
+			type="text" placeholder="Modelo" /> <input type="text" id="color"
+			name="color" required="required" type="text" placeholder="Color" />
+	</div>
+	<div class="form-row">
+		<input id="pwd1" type="password" name="pass" placeholder="Password"
+			pattern="[A-Za-z][A-Za-z0-9]*[0-9][A-Za-z0-9]*"
+			title="Una contraseña válida es un conjuto de caracteres, donde cada uno consiste de una letra mayúscula o minúscula, o un dígito. La contraseña debe empezar con una letra y contener al menor un dígito"
+			required> <input type="password" id="pwd2"
+			required="required" type="password" placeholder="Repeat password"
+			autocomplete="off" pattern="[A-Za-z][A-Za-z0-9]*[0-9][A-Za-z0-9]*"
+			title="Una contraseña válida es un conjuto de caracteres, donde cada uno consiste de una letra mayúscula o minúscula, o un dígito. La contraseña debe empezar con una letra y contener al menor un dígito"
+			required>
+	</div>
+	</br>
 	<button type="button" onclick="register()" id="btnregister">Register</button>
 	<button type="button" onclick="window.history.back()" id="goToLogin">Back</button>
 

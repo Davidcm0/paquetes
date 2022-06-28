@@ -108,10 +108,6 @@ body {
 	border-color:black;
 }
 
-#username, #email, #pwd1, #pwd2 {
-	display:inline
-}
-
 #btnregister, #goToLogin {
 	display:inline
 }
@@ -124,14 +120,6 @@ body {
 	background-color:#9ff38ac5;
 }
 
-#turol, #rolDiv{
-	display:inline;
-}
-
-.selectrol{
-	position: relative;
-	
-}
 
 select-selected {
   background-color: DodgerBlue;
