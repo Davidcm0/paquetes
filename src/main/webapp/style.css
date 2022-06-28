@@ -1,0 +1,139 @@
+* {
+	font-family: 'Bitter', serif;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	background-color:#9DAEB8;
+	background-attachment: fixed;
+	background-repeat: repeat;
+}
+
+.box {
+	width: 600px;
+	padding: 15px;
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background: rgba(0,0,0,-0.1);
+	box-shadow: 0 0 30px rgba(0,0,0,0.568);
+	color:white;
+	text-align: center;
+	border-radius: 25px;
+	height: 560px;
+	margin-bottom: 20px;	
+}
+
+.box h1 {
+	color:#111112;
+	text-transform: uppercase;
+	font-weight: 500;
+}
+
+.box input[type="text"],.box input[type="password"],.box input[type="email"], .box select{
+	border:0;
+	background:#161616c5;
+	display: block;
+	margin: 20px auto;
+	text-align: center;
+	border: 2px solid #2e2c2c;
+	padding: 14px 10px;
+	width: 200px;
+	outline: none;
+	color: rgb(255, 255, 255);
+	border-radius: 18px;
+	transition: 0.5s;
+}
+
+.box input[type="text"]:hover,.box input[type="password"]:hover,.box input[type="email"]:hover {
+	width: 280px;
+	background: #d8d8d8;
+	color: black;
+}
+
+.box button[type="button"] {
+	border:0;
+	background: #6a7384;
+	font-size: 18px;
+	display: block;
+	margin: 20px auto;
+	text-align: center;
+	border: 2px solid #000000;
+	padding: 14px 40px;
+	outline: none;
+	color: white;
+	border-radius: 18px;
+	transition: 0.25s;
+	cursor: pointer;
+	width: 200px;
+}
+
+.box button[type="button"]:hover {
+	background: #2ecc71;
+	color: black;
+	border-color: black;
+}
+
+.box button[value="REGISTRO"]:hover {
+	background: #11a4b8;
+	color: black;
+}
+
+.box button[value="REGISTRO"] {
+	color: white;
+	border-color:#000000 ;
+}
+
+.box button[type=button]:active, #goToLogin:active {
+	transform: scale(0.9);
+}
+
+.box {
+	flex-wrap: wrap;
+	margin:20px;
+	margin-bottom: 0px;
+}
+
+#goToLogin {
+	border-color: grey;
+	background-color:grey;
+	opacity:0.8;
+}
+
+#goToLogin:hover {
+	background-color: grey;
+	border-color:black;
+}
+
+#btnregister, #goToLogin {
+	display:inline
+}
+
+#btnregister {
+	background-color:#2ecc71;
+}
+
+#btnregister:hover {
+	background-color:#9ff38ac5;
+}
+
+
+select-selected {
+  background-color: DodgerBlue;
+}
+
+/* Style the arrow inside the select element: */
+select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+

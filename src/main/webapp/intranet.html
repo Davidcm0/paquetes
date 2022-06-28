@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Intranet</title>
+<meta charset="ISO-8859-1">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+
+<!-- CUSTOM CSS -->
+<link rel="stylesheet" href="intranet.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link
+	href="https://fonts.googleapis.com/css2?family=Bitter:wght@500&display=swap"
+	rel="stylesheet">
+</head>
+<body>
+	<div id="headerr"
+		class="col-md-6 col-sm-8 col-xl-6 col-lg-4 boxHeaderGestion"
+		style="height: 45%;">
+		<div class="row">
+			<div class="col-md-4">
+				<h1></h1>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item" id="marca" style="background: bottom"></li>
+					<li class="list-group-item" id="modelo" style="background: bottom"></li>
+					<li class="list-group-item" id="color" style="background: bottom"></li>
+
+				</ul>
+				<button type="button" id="modificarVehiculo" class="btn btn-primary"
+					onclick="window.location.href='/modificarVehiculo.html'"
+					style="margin-right: 3%; margin-top: 1%;">Actualizar
+					vehiculo</button>
+			</div>
+			<div id="bot" class="col-md-8" style="text-align: center;">
+				<div class="row">
+					<div class="col-md-4">
+
+						Mis pedidos:
+
+						<!-- ko foreach : { data: listapedidosMios, as :"pedido" } -->
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="form2"> <label class="form-check-label"
+								for="flexCheckDefault" data-bind="html : id"> </label>
+						</div>
+						
+						<!-- /ko -->
+					
+						</br>
+						<div class="row">
+							<input type="text" class="form-control" id="actualizacionUbi"
+								placeholder="Actualizar ubicación"></br></br>
+							<div class="col-md-6">
+								<button type="button" id="EliminarPedido"
+									class="btn btn-primary" data-bind="click: $root.eliminarPedido"
+									style="margin-right: 3%; margin-top: 1%;">Eliminar
+									pedido</button>
+							</div>
+							<div class="col-md-6">
+								<button type="button" id="ActualizarUbicacion"
+									class="btn btn-primary"
+									data-bind="click: $root.actualizarUbicacion"
+									style="margin-right: 3%; margin-top: 1%;">Actualizar
+									ubicación</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<!-- ko foreach : { data: listapedidosDisponibles, as :"pedido" } -->
+						<div class="form-check">
+							<input class="form-check-input 2" type="checkbox" value=""
+								id="asignar"> <label class="form-check-label 2"
+								for="flexCheckDefault" data-bind="html : id"> </label>
+						</div>
+						<!-- /ko -->
+
+
+						<button type="button" id="asignarPedido" class="btn btn-primary"
+							data-bind="click: $root.asignarPedido"
+							style="margin-right: 3%; margin-top: 1%;">Asignar pedido</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+			integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+			integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<!-- KNOCKOUT -->
+		<script src="https://knockoutjs.com/downloads/knockout-3.5.0.js"></script>
+
+		<script src="intranet.js"></script>
+
+</body>
+<style>
+li {
+	background: bottom;
+}
+</style>
+</html>
