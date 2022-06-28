@@ -42,17 +42,6 @@ public class VehiculoDAO {
 	}
 	
 	
-	public static void actualizar_ubicacion(String matricula, String ubicacion) {
-//		MongoCollection<Document> coleccion = AgenteDB.get().getBd(PROYECTO);
-//		 Document findDocument = new Document("nombre", proyecto);
-//		 
-//		// Create the document to specify the update
-//		    Document updateDocument = new Document("$set",
-//		        new Document("estado", estado));
-//		    coleccion.findOneAndUpdate(findDocument, updateDocument);
-//		
-	}
-	
 	public static List<Vehiculo> leer_vehiculos() {
 		ArrayList<Vehiculo> vehiculos = new ArrayList<>();
 		Document document;

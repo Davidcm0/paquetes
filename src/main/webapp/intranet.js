@@ -89,8 +89,8 @@ function ViewModel() {
 	
 	self.asignarPedido = function() {
 		for (var i = 0; i < self.listapedidosDisponibles().length; i++) {
-			if (document.getElementsByClassName("form-check-input")[i].checked === true) {
-				self.pedidosAsignados.push(document.getElementsByClassName("form-check-label")[i].innerHTML);
+			if (document.getElementsByClassName("form-check-input 2")[i].checked === true) {
+				self.pedidosAsignados.push(document.getElementsByClassName("form-check-label 2")[i].innerHTML);
 			}
 		}
 		
@@ -124,7 +124,7 @@ function ViewModel() {
 		nueva_ubi = stringEscape(nueva_ubi);
 		for (var i = 0; i < self.listapedidosMios().length; i++) {
 			if (document.getElementsByClassName("form-check-input")[i].checked === true) {
-				self.nuevaUbi.push(document.getElementsByClassName("form-check-label")[i].innerHTML);
+				self.NuevaUbi.push(document.getElementsByClassName("form-check-label")[i].innerHTML);
 			}
 		}
 		

@@ -89,14 +89,42 @@ public class PaqueteDAO {
 
 	}
 
-	public static void eliminar_pedido(Integer id) {
+	public static void eliminar_pedido(int id) {
 		Document document;
 		MongoCollection<Document> coleccion;
-
-		if (id != null) {
+		String Id = String.valueOf(id);
+		if (Id != null) {
 			coleccion = AgenteDB.get().getBd(PEDIDO);
 			document = new Document("Id", id);
 			coleccion.findOneAndDelete(document);
+		}
+		
+	}
+	
+	public static void actualizar_ubicacion(int Id, String ubicacion) {
+		Document document;
+		Pedido p = null;
+		ArrayList<String> ubicaciones;
+		MongoCollection<Document> coleccion = AgenteDB.get().getBd(PEDIDO);
+		MongoCursor<Document> iter = coleccion.find().iterator();
+		
+		while ((iter.hasNext())) {
+			document = iter.next();
+			if(Id == document.getInteger(ID)) {
+				p = new Pedido(document.getInteger(ID), (ArrayList<String>) document.get(UBICACIONES), document.getString(VEHICULO));
+				ubicaciones = (ArrayList<String>) document.get(UBICACIONES);
+				ubicaciones.add(ubicacion);
+				//actualizamos documento
+				Document findDocument = new Document(ID, document.getInteger(ID));
+				 
+				// Create the document to specify the update
+				Document updateDocument = new Document("$set",
+		           new Document(UBICACIONES, ubicaciones));
+				coleccion.findOneAndUpdate(findDocument, updateDocument);
+				
+			}
+			
+			
 		}
 		
 	}
