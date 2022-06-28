@@ -11,7 +11,7 @@ import org.json.JSONObject;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 
-
+import excepciones.CredencialesInvalidasException;
 //import excepciones.CredencialesInvalidasException;
 import persistencia.PaqueteDAO;
 import persistencia.VehiculoDAO;
@@ -49,20 +49,20 @@ public class Manager {
 				break;
 		}
 		if (!login) {
-			//throw new CredencialesInvalidasException();
+			throw new CredencialesInvalidasException();
 		}
 
 	}
-
+   
 	public boolean checkCredenciales(Vehiculo v, String matricula, String password) throws Exception {
 		boolean aux = false;
-		String pwdEncrypted, pwdUser;
+		String pwdEncrypted, pwd;
 		if (v.getMatricula().equals(matricula)) {
 				pwdEncrypted = v.getPassword();
-				pwdUser = encriptarMD5(password);
-				if (!(pwdEncrypted.equals(pwdUser))) {
+				pwd = encriptarMD5(password);//se encripta la password pasada para comprobarla con la de la bd
+				if (!(pwdEncrypted.equals(pwd))) {
 
-					//throw new CredencialesInvalidasException();
+					throw new CredencialesInvalidasException();
 
 				} else {
 					System.out.println("Sucessful login");
@@ -78,7 +78,7 @@ public class Manager {
 	public void setSession(WebSocketSession session) {
 		this.session = session;
 	}
-
+    //se encripta la password
 	private static String encriptarMD5(String input) {
 		try {
 			MessageDigest md = MessageDigest.getInstance("MD5");

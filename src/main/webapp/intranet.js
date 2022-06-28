@@ -104,7 +104,7 @@ function ViewModel() {
 		location.reload();
 		
 	}
-	
+	//estas dos funciones se hacen para evitar ataques de SQL injection
 	function escapeHtml(text) {
 		  var map = {
 		    '&': '&amp;',

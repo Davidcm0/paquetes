@@ -26,7 +26,8 @@ let register = function() {
 		alert('CONTRASENA NO VALIDA');
 	}
 };
-
+//estas funciones de abajo son para validar que se cumplen los requisitos
+// minimos de una password, aunque tambien se hacen en el propio html
 function contrasenaValida(pwd) {
 
 	if (pwd.length > 4 && tiene_numeros(pwd) && tiene_minuscula_y_mayuscula(pwd)) {

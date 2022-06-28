@@ -17,7 +17,7 @@ public class Controller {
 	private static final String MARCA = "marca";
 	private static final String MODELO = "modelo";
 	private static final String COLOR = "color";
-
+    //responde a las peticiones HTTP de tipo post a la url /login
 	@PostMapping("/login")
 	public void login(@RequestBody Map<String, Object> credenciales)  throws Exception {
 		JSONObject jso = new JSONObject(credenciales);
@@ -26,7 +26,7 @@ public class Controller {
 		
 		Manager.get().login(matricula, password);
 	}
-
+    //responde a las peticiones HTTP de tipo post a la url /register
 	@PostMapping("/register")
 	public void register(@RequestBody Map<String, Object> credenciales) throws Exception {
 		JSONObject jso = new JSONObject(credenciales);
@@ -35,7 +35,7 @@ public class Controller {
 		
 
 		if (!password.equals(passwordConfirmacion)) {
-			//throw new excepciones.DiferentesContrasenasException(); quiza hacer system out err
+			throw new excepciones.DiferentesContrasenasException(); 
 		}
 
 		String matricula = jso.getString(MATRICULA);

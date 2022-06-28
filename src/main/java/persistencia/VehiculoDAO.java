@@ -80,7 +80,7 @@ public class VehiculoDAO {
 			String modelo, String color) {
 		MongoCollection<Document> coleccion = AgenteDB.get().getBd(VEHICULO);
 		 Document findDocument = new Document("matricula", matricula_vieja);
-		//actualizamos descripcion
+		
 		 if (!matricula_nueva.equals("")) {
 		    Document updateMatricula = new Document("$set",new Document("matricula", matricula_nueva));
 		    coleccion.findOneAndUpdate(findDocument, updateMatricula);

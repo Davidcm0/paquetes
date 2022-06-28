@@ -38,7 +38,7 @@ function ViewModel() {
 		}
 		window.location.href = 'intranet.html';
 	};
-	
+	//estas dos funciones de abajo son para evitar ataques de SQL injection
 	function escapeHtml(text) {
 		  var map = {
 		    '&': '&amp;',
